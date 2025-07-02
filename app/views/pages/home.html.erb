@@ -1,0 +1,14 @@
+<h1>Pages#home</h1>
+<p>Find me in app/views/pages/home.html.erb</p>
+
+<% if current_user %>
+    <p>Welcome, <%= current_user.email %>!</p>
+    <p>Your role is: [<%= current_user.role %>]</p>
+    <% if current_user.admin? %>
+        <p>You have admin privileges.</p>
+    <% end %>
+    <%= link_to 'sign_out', destroy_user_session_path, 'data-turbo-method': ::delete %>
+<% else %>
+    <p>Please <%= link_to 'sign in', new_user_session_path %>
+     or <%= link_to 'sign up', new_user_registration_path %>.</p>
+<% end %>

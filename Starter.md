@@ -1,0 +1,12 @@
+- rails new DeviseRoles -j esbuild -c tailwind
+- cd DeviseRoles
+- bundle add devise
+- rails g devise:install
+- rails g devise User role:integer
+- ** ...devise_create_users.rb
+    - t.integer :role,default: 0, null: false # Default role is 0 (e.g., :user)
+- rails db:migrate
+- rails g controller pages home
+- ** routes
+- rails g devise:views
+- ** user.rb
